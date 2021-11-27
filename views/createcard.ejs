@@ -4,7 +4,87 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="indexStyles.css" />
+    <title>devCard</title>
   </head>
-  <body></body>
+  <body>
+    <div class="blur">
+      <h1>Create your DevCard</h1>
+      <div class="box medium" id="one">
+        <form method="post" action="/myForm">
+          <input type="text" placeholder="Your Full Name" name="fullName" /></div>
+      <div class="box large">
+        
+          <input type="text" placeholder="About Me" name="aboutMe" />
+        
+      </div>
+      <div class="checkbox">
+        <h2>Technologies you Know:</h2>
+        <div class="small" id="HTML">
+          <input type="checkbox" name='knownTechnologies' value="HTML" />
+          <h3>HTML</h3>
+        </div>
+        <div class="small" id="JS">
+          <input type="checkbox" name='knownTechnologies' value="JS" />
+          <h3>JS</h3>
+        </div>
+        <div class="small" id="React">
+          <input type="checkbox" name='knownTechnologies' value="React" />
+          <h3>React</h3>
+        </div>
+        <div class="small" id="CSS">
+          <input type="checkbox" name='knownTechnologies' value="CSS" />
+          <h3>CSS</h3>
+        </div>
+        <div class="small" id="Git">
+          <input type="checkbox" name='knownTechnologies' value="Git" />
+          <h3>Git</h3>
+        </div>
+        <div class="small" id="Node.js">
+          <input type="checkbox" name='knownTechnologies' value="Node.js" />
+          <h3>Node.js</h3>
+        </div>
+      </div>
+      <div class="box medium" id="two">
+        
+          <input type="text" placeholder="Github Url" name="githubUrl" />
+        
+      </div>
+      <div class="box medium" id="three">
+        
+          <input type="text" placeholder="Twitter Url" name="twitterUrl" />
+        
+      </div>
+      <div class="box medium" id="four">
+        
+          <input
+            class="smallBox"
+            type="text"
+            placeholder="Favourite Books (Seperate by comma)"
+            name="favoriteBooks"
+          />
+        
+      </div>
+      <div class="box medium" id="five">
+        
+          <input
+            class="smallBox"
+            type="text"
+            placeholder="Favourite Artists (Seperate by comma)"
+            name="favoriteArtists"
+          />
+        
+      </div>
+      <div class="box medium" id="six">
+        
+          <input
+            class="smallBox"
+            type="submit"
+            value="Create Site"
+            name="Create Site"
+          />
+      </form>
+      </div>
+    </div>
+  </body>
 </html>

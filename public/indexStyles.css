@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 9px;
+}
+
+h1 {
+  font-size: 12px;
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+h2 {
+  font-size: 8px;
+}
+
+h3 {
+  font-size: 6px;
+}
+
+body {
+  margin: 0px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("https://images.unsplash.com/photo-1567705781280-0e03ffb323f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80");
+  background: cover;
+  width: 100%;
+  height: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font-size: 8px;
+  background-color: transparent;
+  border: 0px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 8px;
+}
+
+.smallbox {
+  font-size: 6px;
+}
+
+.blur {
+  display: grid;
+  grid: repeat(19, 1fr) / repeat(3, 1fr);
+  width: 200px;
+  height: 400px;
+  background: linear-gradient(
+      0deg,
+      rgba(160, 225, 245, 0.4),
+      rgba(160, 225, 245, 0.4)
+    ),
+    radial-gradient(
+      50% 50% at 50% 50%,
+      #a0e1f5 0%,
+      rgba(160, 225, 245, 0.22) 100%
+    );
+  backdrop-filter: blur(4px);
+  border-radius: 29px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fbe5d1;
+  border-radius: 6px;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+.medium {
+  width: 125px;
+  height: 25px;
+}
+
+.large {
+  width: 125px;
+  height: 50px;
+  grid-column-start: 2;
+  grid-row-start: 6;
+}
+
+.small {
+  width: 8px;
+  height: 8px;
+  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
+}
+
+#one {
+  grid-column-start: 2;
+  grid-row-start: 4;
+}
+
+.checkbox {
+  width: 125px;
+  display: grid;
+  align-items: center;
+  grid-column-start: 2;
+  grid-row-start: 8;
+  grid: 1fr 1fr 1fr 1fr / 1fr 1fr;
+}
+
+.checkbox h2 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+}
+
+#HTML {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+#JS {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+#React {
+  grid-column-start: 1;
+  grid-row-start: 4;
+}
+
+#CSS {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+#Git {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+
+#Node.js {
+  grid-column-start: 2;
+  grid-row-start: 4;
+}
+
+#two {
+  grid-column-start: 2;
+  grid-row-start: 10;
+}
+
+#three {
+  grid-column-start: 2;
+  grid-row-start: 12;
+}
+
+#four {
+  grid-column-start: 2;
+  grid-row-start: 14;
+}
+
+#five {
+  grid-column-start: 2;
+  grid-row-start: 16;
+}
+
+#six {
+  grid-column-start: 2;
+  grid-row-start: 18;
+}

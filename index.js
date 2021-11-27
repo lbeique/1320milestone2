@@ -1,6 +1,7 @@
 const express = require("express");
 const PORT = process.env.PORT || 8007;
 const app = express();
+const fs = require("fs").promises;
 
 // Don't worry about these 4 lines below
 app.set("view engine", "ejs");
@@ -9,10 +10,35 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
+  res.render("createcard");
+});
+
+app.get("/homepage", (req, res) => {
   res.render("homepage");
 });
-app.get("/people/:id", (req, res) => {
-  res.render("people");
+
+app.post("/myForm", async (req, res) => {
+  let newUser = req.body;
+  // console.log(newUser);
+  newUser.id = newUser.fullName + Math.random().toString(26).substring(5);
+  const { fullName, aboutMe, knownTechnologies, githubUrl, twitterUrl, favoriteBooks, favoriteArtists } = newUser;
+  const content = await fs.readFile("database.json", "utf-8");
+  const parsedContent = JSON.parse(content);
+  parsedContent.users.push({ fullName, aboutMe, knownTechnologies, githubUrl, twitterUrl, favoriteBooks, favoriteArtists });
+  await fs.writeFile("database.json", JSON.stringify(parsedContent));
+  res.redirect(`/people/${newUser.id}`);
+});
+
+app.get("/people/:id", async (req, res) => {
+  // SOMEHOW YOU NEED THE ID FROM THE URL
+  // WITH THE ID IN HAND! LOOK UP DATABASE FOR USER WITH ID
+  // PROB USE fs.readfile
+
+  const content = await fs.readFile("database.json", "utf-8");
+  const parsedContent = JSON.parse(content).users;
+  users.find((user) => user.id === id).res.render('homepage', { user });
+
+  // res.render('homepage', { user });
 });
 
 app.get("/:id/photos", (req, res) => {
