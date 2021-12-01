@@ -18,27 +18,52 @@ app.get("/homepage", (req, res) => {
 });
 
 app.post("/myForm", async (req, res) => {
-  let newUser = req.body;
-  // console.log(newUser);
-  newUser.id = newUser.fullName + Math.random().toString(26).substring(5);
-  const { fullName, aboutMe, knownTechnologies, githubUrl, twitterUrl, favoriteBooks, favoriteArtists } = newUser;
-  const content = await fs.readFile("database.json", "utf-8");
-  const parsedContent = JSON.parse(content);
-  parsedContent.users.push({ fullName, aboutMe, knownTechnologies, githubUrl, twitterUrl, favoriteBooks, favoriteArtists });
-  await fs.writeFile("database.json", JSON.stringify(parsedContent));
-  res.redirect(`/people/${newUser.id}`);
+  try {
+    let newUser = req.body;
+    newUser.id = newUser.fullName + Math.random().toString(26).substring(5);
+    const {
+      fullName,
+      aboutMe,
+      knownTechnologies,
+      githubUrl,
+      twitterUrl,
+      favoriteBooks,
+      favoriteArtists,
+      id,
+    } = newUser;
+    const content = await fs.readFile("database.json", "utf-8");
+    const parsedContent = JSON.parse(content);
+    parsedContent.users.push({
+      fullName,
+      aboutMe,
+      knownTechnologies,
+      githubUrl,
+      twitterUrl,
+      favoriteBooks,
+      favoriteArtists,
+      id,
+    });
+    await fs.writeFile("database.json", JSON.stringify(parsedContent));
+    res.redirect(`/people/${newUser.id}`);
+  } catch (e) {
+    console.error(e);
+  } finally {
+    console.log("Things are broken!");
+  }
 });
 
 app.get("/people/:id", async (req, res) => {
-  // SOMEHOW YOU NEED THE ID FROM THE URL
-  // WITH THE ID IN HAND! LOOK UP DATABASE FOR USER WITH ID
-  // PROB USE fs.readfile
-
-  const content = await fs.readFile("database.json", "utf-8");
-  const parsedContent = JSON.parse(content).users;
-  users.find((user) => user.id === id).res.render('homepage', { user });
-
-  // res.render('homepage', { user });
+  try {
+    const id = req.params.id;
+    const databaseContent = await fs.readFile("database.json", "utf-8");
+    const users = JSON.parse(databaseContent).users;
+    const user = users.find((user) => user.id === id);
+    res.render("homepage", { user });
+  } catch (e) {
+    console.error(e);
+  } finally {
+    console.log("Things are broken!");
+  }
 });
 
 app.get("/:id/photos", (req, res) => {

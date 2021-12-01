@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Armaan's DevCard</title>
+    <title><%= user.fullName.split(' ')[0]  %>'s DevCard</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/luxonauta/luxa@1.1/dist/expanded/luxa.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <main class="has-dflex-center">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="infos">
                       <span
-                        ><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Armaan Dhaanji</span
+                        ><i class="fas fa-user-circle"></i>&nbsp;&nbsp;<%= user.fullName  %></span
                       ><span
                         ><i class="fas fa-briefcase"></i>&nbsp;&nbsp;Full Stack
                         Developer</span
@@ -47,17 +47,17 @@
                 </div>
                 <div class="lx-card">
                   <div class="lx-row">
-                    <h1 class="title">Connect with Armaan</h1>
+                    <h1 class="title">Connect with <%= user.fullName.split(' ')[0]  %></h1>
                     <div class="mini-cards">
                       <a
                         class="has-dflex-center bs-md"
-                        href="https://github.com/adhanji8"
+                        href="<%= user.githubUrl %>"
                         target="_blank"
                         rel="noopener noreferrer"
                         ><i class="fab fa-github-alt"></i></a
                       ><a
                         class="has-dflex-center bs-md"
-                        href="https://www.twitter.com/bcit"
+                        href="<%= user.twitterUrl  %>"
                         target="_blank"
                         rel="noopener noreferrer"
                         ><i class="fab fa-twitter"></i
@@ -71,7 +71,7 @@
               <div class="lx-row">
                 <div class="lx-row lx-card">
                   <h1 class="title">
-                    <i class="fas fa-info-circle"></i>&nbsp;Welcome to Armaan's
+                    <i class="fas fa-info-circle"></i>&nbsp;Welcome to <%= user.fullName.split(' ')[0]  %>'s
                     corner of the Internet
                   </h1>
                 </div>
@@ -81,14 +81,7 @@
                   </h1>
                   <div class="text">
                     <p>
-                      Hi, my name is&nbsp;<b>Armaan Dhanji</b>, but I'm better
-                      known by my nickname&nbsp;<i>@armaand</i>, and I'm a
-                      teacher in the School of Computing at BCIT.
-                    </p>
-                    <p>
-                      I&nbsp;&nbsp;<i class="fas fa-heart"></i>&nbsp; to code
-                      full-stack projects, always looking for innovative ways to
-                      write code that follows practices!
+                      <%= user.aboutMe  %>
                     </p>
                   </div>
                 </div>
@@ -96,33 +89,45 @@
                   <h1 class="title">
                     <i class="fas fa-terminal"></i>&nbsp;Technologies
                   </h1>
-                  <div class="mini-cards">
+                  
+                  <% if ( user.knownTechnologies ) { %> 
+                    <div class="mini-cards">
+                      <% user.knownTechnologies.forEach(techno => { %>
+                          <% if (techno === "CSS" ) { %>
+                              <span class="has-dflex-center bs-md" title="CSS"><i class="fab fa-css3-alt"></i></span>
+                            
+                            <% } else if (techno === "HTML" ) {%>
+                              <span class="has-dflex-center bs-md" title="HTML"><i class="fab fa-html5"></i></span>
+                            
+                            <% } else if (techno === "JS" ) {%>
+                              <span class="has-dflex-center bs-md" title="JS"><i class="fab fa-js"></i></span>
+                            
+                              <% } else if (techno === "Git" ) {%>
+                              <span class="has-dflex-center bs-md" title="Git"><i class="fab fa-git-alt"></i></span>
+                            
+                              <% } else if (techno === "Node.js" ) {%>
+                              <span class="has-dflex-center bs-md" title="Node JS"><i class="fab fa-node-js"></i></span>
+                            
+                              <% } else if (techno === "React" ) {%>
+                              <span class="has-dflex-center bs-md" title="React"><i class="fab fa-react"></i></span>
+                            
+                        <%  }}); %>
+                      
+                    
+                  
 
-          <% array.forEach(element => { %>
-             <%= element %>
-          <% }) %>
-                    <span class="has-dflex-center bs-md" title="CSS"
-                      ><i class="fab fa-css3-alt"></i></span
-                    ><span class="has-dflex-center bs-md" title="HTML"
-                      ><i class="fab fa-html5"></i></span
-                    ><span class="has-dflex-center bs-md" title="JS"
-                      ><i class="fab fa-js"></i></span
-                    ><span class="has-dflex-center bs-md" title="Sass"
-                      ><i class="fab fa-sass"></i></span
-                    ><span class="has-dflex-center bs-md" title="Git"
-                      ><i class="fab fa-git-alt"></i></span
-                    ><span class="has-dflex-center bs-md" title="Gulp"
-                      ><i class="fab fa-gulp"></i></span
-                    ><span class="has-dflex-center bs-md" title="Node JS"
-                      ><i class="fab fa-node-js"></i></span
-                    ><span class="has-dflex-center bs-md" title="NPM"
-                      ><i class="fab fa-npm"></i></span
-                    ><span class="has-dflex-center bs-md" title="PHP"
-                      ><i class="fab fa-php"></i></span
-                    ><span class="has-dflex-center bs-md" title="React"
-                      ><i class="fab fa-react"></i
-                    ></span>
-                  </div>
+                
+                <!-- <span class="has-dflex-center bs-md" title="Gulp"><i class="fab fa-gulp"></i></span> -->
+                
+                <!-- <span class="has-dflex-center bs-md" title="NPM"><i class="fab fa-npm"></i></span> -->
+
+                <!-- <span class="has-dflex-center bs-md" title="PHP"><i class="fab fa-php"></i></span> -->
+                    
+                <!-- <span class="has-dflex-center bs-md" title="Sass"><i class="fab fa-sass"></i></span> -->
+                         
+
+                    </div>
+                    <% } %>
                 </div>
                 <div class="lx-row lx-card">
                   <h1 class="title">
@@ -130,29 +135,17 @@
                   </h1>
                   <div class="text">
                     <ol>
+                    <% let books = user.favoriteBooks.split(',') %>
+                    <% for (let index = 0; index < books.length; index++) { %>
                       <li>
                         <p>
-                          <b>The Lord of the Rings</b>&nbsp;- J. R. R. Tolkien
+                          <b><%= books[index].split('-')[0] %></b>&nbsp;-<%= books[index].split('-')[1] %>
                         </p>
                       </li>
-                      <li>
-                        <p><b>Foundation series</b>&nbsp;- Isaac Asimov</p>
-                      </li>
-                      <li>
-                        <p>
-                          <b>Cracking the Coding Interview</b>&nbsp;- Gayle
-                          Laakmann
-                        </p>
-                      </li>
-                      <li>
-                        <p><b>Clean Code</b>&nbsp;- Rob Martin</p>
-                      </li>
-                      <li>
-                        <p>
-                          <b>A Brief History of Time</b>&nbsp;- Stephen Hawking
-                        </p>
-                      </li>
+                      <% }; %>
                     </ol>
+
+                    
                   </div>
                 </div>
               </div>
