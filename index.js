@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
   res.render("createcard");
 });
 
+// This is currently broken, it needs a user to render the page
 app.get("/homepage", (req, res) => {
   res.render("homepage");
 });
@@ -20,7 +21,7 @@ app.get("/homepage", (req, res) => {
 app.post("/myForm", async (req, res) => {
   try {
     let newUser = req.body;
-    newUser.id = newUser.fullName + Math.random().toString(26).substring(5);
+    newUser.id = newUser.fullName.split(' ')[0] + Math.random().toString(26).substring(5);
     const {
       fullName,
       aboutMe,
