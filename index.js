@@ -45,25 +45,19 @@ app.post("/myForm", async (req, res) => {
     });
     await fs.writeFile("database.json", JSON.stringify(parsedContent));
     res.redirect(`/people/${newUser.id}`);
-  } catch (e) {
-    console.error(e);
+  } catch (err) {
+    console.error(err);
   } finally {
     console.log("Things are broken!");
   }
 });
 
 app.get("/people/:id", async (req, res) => {
-  try {
     const id = req.params.id;
-    const databaseContent = await fs.readFile("database.json", "utf-8");
+    const databaseContent = await fs.readFile("database.json", "utf-8").catch(err => console.log(err));
     const users = JSON.parse(databaseContent).users;
     const user = users.find((user) => user.id === id);
     res.render("homepage", { user });
-  } catch (e) {
-    console.error(e);
-  } finally {
-    console.log("Things are broken!");
-  }
 });
 
 app.get("/:id/photos", (req, res) => {
