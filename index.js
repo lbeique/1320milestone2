@@ -9,17 +9,33 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+// // This function reads the local storage and returns an object
+// const readLocalStorage = (localItem) => {
+//   return JSON.parse(window.localStorage.getItem(localItem));
+// }
+
+// // This function takes an object and writes it to local storage
+// const writeLocalStorage = (user, local) => {
+// window.localStorage.setItem(local, JSON.stringify(user));
+// }
+
 app.get("/", (req, res) => {
   res.render("createcard");
 });
 
 // This is currently broken, it needs a user to render the page
 app.get("/homepage", (req, res) => {
-  res.render("homepage");
+  // user = readLocalStorage('userID');
+  // if (user) {
+  // res.render("homepage", { user });
+  // } else {
+    res.redirect("/");
+  // }
 });
 
 app.post("/myForm", async (req, res) => {
   try {
+    // window.localStorage.clear();
     let newUser = req.body;
     newUser.id = newUser.fullName.split(' ')[0] + Math.random().toString(26).substring(5);
     const {
@@ -32,6 +48,7 @@ app.post("/myForm", async (req, res) => {
       favoriteArtists,
       id,
     } = newUser;
+    // writeLocalStorage(newUser, 'userID');
     const content = await fs.readFile("database.json", "utf-8");
     const parsedContent = JSON.parse(content);
     parsedContent.users.push({
@@ -44,7 +61,7 @@ app.post("/myForm", async (req, res) => {
       favoriteArtists,
       id,
     });
-    await fs.writeFile("database.json", JSON.stringify(parsedContent));
+    await fs.writeFile("database.json", JSON.stringify(parsedContent, null, "\t"));
     res.redirect(`/people/${newUser.id}`);
   } catch (err) {
     console.error(err);
@@ -68,3 +85,5 @@ app.get("/:id/photos", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server now is running at http://localhost:${PORT} 🚀`);
 });
+
+

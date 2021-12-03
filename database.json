@@ -1,24 +1,65 @@
 {
-  "users": [
-    {
-      "id": "ArmaanDhanjiSfij54az3",
-      "fullName": "Armaan Dhanji",
-      "aboutMe": "Hi, my name is Armaan Dhanji but I'm better known by my nickname @armaand, and I'm a teacher in the School of Computing at BCIT.",
-      "knownTechnologies": ["HTML", "CSS", "JS", "Git", "React", "Node.js"],
-      "githubUrl": "https://github.com/adhanji8",
-      "twitterUrl": "https://twitter.com/bcit",
-      "favoriteBooks": "The Lord of the Rings - J. R. R. Tolkien, Foundation Series - Isaac Asimov, Cracking the Coding Interview - Gayle Laakmann, Clean Code - Rob Martin, A Brief History of Time - Stephen Hawking",
-      "favoriteArtists": "U2"
-    },
-    {
-      "fullName": "Gary Jules",
-      "aboutMe": "All around me are familiar faces Worn out places, worn out faces Bright and early for the daily races Going nowhere, going nowhere Their tears are filling up their glasses No expression, no expression Hide my head, I wanna drown my sorrow No tomorrow, no tomorrow And I find it kind of funny I find it kind of sad The dreams in which I'm dying Are the best I've ever had I find it hard to tell you I find it hard to take When people run in circles it's a very, very Mad world, mad world",
-      "knownTechnologies": ["HTML", "React", "Git", "Node.js"],
-      "githubUrl": "https://github.com/",
-      "twitterUrl": "https://twitter.com/?lang=en",
-      "favoriteBooks": "The Horse and Spindle - Steven Appleton, The Metal Horse - Hugh Stevens",
-      "favoriteArtists": "Sunday, FunTimes",
-      "id": "GaryJuleshl1bc67je"
-    }
-  ]
+	"users": [
+		{
+			"id": "ArmaanDhanjiSfij54az3",
+			"fullName": "Armaan Dhanji",
+			"aboutMe": "Hi, my name is Armaan Dhanji but I'm better known by my nickname @armaand, and I'm a teacher in the School of Computing at BCIT.",
+			"knownTechnologies": [
+				"HTML",
+				"CSS",
+				"JS",
+				"Git",
+				"React",
+				"Node.js"
+			],
+			"githubUrl": "https://github.com/adhanji8",
+			"twitterUrl": "https://twitter.com/bcit",
+			"favoriteBooks": "The Lord of the Rings - J. R. R. Tolkien, Foundation Series - Isaac Asimov, Cracking the Coding Interview - Gayle Laakmann, Clean Code - Rob Martin, A Brief History of Time - Stephen Hawking",
+			"favoriteArtists": "U2"
+		},
+		{
+			"fullName": "Gary Jules",
+			"aboutMe": "All around me are familiar faces Worn out places, worn out faces Bright and early for the daily races Going nowhere, going nowhere Their tears are filling up their glasses No expression, no expression Hide my head, I wanna drown my sorrow No tomorrow, no tomorrow And I find it kind of funny I find it kind of sad The dreams in which I'm dying Are the best I've ever had I find it hard to tell you I find it hard to take When people run in circles it's a very, very Mad world, mad world",
+			"knownTechnologies": [
+				"HTML",
+				"React",
+				"Git",
+				"Node.js"
+			],
+			"githubUrl": "https://github.com/",
+			"twitterUrl": "https://twitter.com/?lang=en",
+			"favoriteBooks": "The Horse and Spindle - Steven Appleton, The Metal Horse - Hugh Stevens",
+			"favoriteArtists": "Sunday, FunTimes",
+			"id": "GaryJuleshl1bc67je"
+		},
+		{
+			"fullName": "Sleepy Boy",
+			"aboutMe": "I love jib jabs and other jibs and jabs",
+			"knownTechnologies": [
+				"HTML",
+				"React",
+				"CSS",
+				"Git"
+			],
+			"githubUrl": "https://github.com/",
+			"twitterUrl": "https://twitter.com/?lang=en",
+			"favoriteBooks": "The Horse and Spindle - Steven Appleton, The Metal Horse - Hugh Stevens",
+			"favoriteArtists": "Sunday, FunTimes",
+			"id": "Sleepyhbi8i45ee"
+		},
+		{
+			"fullName": "Mr Man",
+			"aboutMe": "Oh baby, oh baby, oh we both know the truth If it were the real me and you This wouldn't be the right thing to do Now the room is all hazy, we're too lost in the fumes I feel like it's just me and you Yeah we got nothing to lose",
+			"knownTechnologies": [
+				"HTML",
+				"React",
+				"CSS"
+			],
+			"githubUrl": "https://github.com/",
+			"twitterUrl": "https://twitter.com/?lang=en",
+			"favoriteBooks": "Happy Boy - Sad Boy, Killjoy - Mr Man",
+			"favoriteArtists": "WaldoSpam",
+			"id": "Mrja18mh95e"
+		}
+	]
 }
