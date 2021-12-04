@@ -37,37 +37,38 @@ app.post("/myForm", async (req, res) => {
   try {
     // window.localStorage.clear();
     let newUser = req.body;
-    newUser.id = newUser.fullName.split(' ')[0] + Math.random().toString(26).substring(5);
-    const {
-      fullName,
-      aboutMe,
-      knownTechnologies,
-      githubUrl,
-      twitterUrl,
-      favoriteBooks,
-      favoriteArtists,
-      id,
-    } = newUser;
-    // writeLocalStorage(newUser, 'userID');
-    const content = await fs.readFile("database.json", "utf-8");
-    const parsedContent = JSON.parse(content);
-    parsedContent.users.push({
-      fullName,
-      aboutMe,
-      knownTechnologies,
-      githubUrl,
-      twitterUrl,
-      favoriteBooks,
-      favoriteArtists,
-      id,
-    });
-    await fs.writeFile("database.json", JSON.stringify(parsedContent, null, "\t"));
-    res.redirect(`/people/${newUser.id}`);
-  } catch (err) {
-    console.error(err);
-  } finally {
-    console.log("Things are broken!");
-  }
+    if (!newUser.fullName) {
+      res.redirect("/");
+    }
+      newUser.id = newUser.fullName.split(' ')[0] + Math.random().toString(26).substring(5);
+      const {
+        fullName,
+        aboutMe,
+        knownTechnologies,
+        githubUrl,
+        twitterUrl,
+        favoriteBooks,
+        favoriteArtists,
+        id,
+      } = newUser;
+      // writeLocalStorage(newUser, 'userID');
+      const content = await fs.readFile("database.json", "utf-8");
+      const parsedContent = JSON.parse(content);
+      parsedContent.users.push({
+        fullName,
+        aboutMe,
+        knownTechnologies,
+        githubUrl,
+        twitterUrl,
+        favoriteBooks,
+        favoriteArtists,
+        id,
+      });
+      await fs.writeFile("database.json", JSON.stringify(parsedContent, null, "\t"));
+      res.redirect(`/people/${newUser.id}`);
+    } catch (err) {
+      console.error(err);
+    }
 });
 
 app.get("/people/:id", async (req, res) => {

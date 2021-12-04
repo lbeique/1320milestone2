@@ -89,9 +89,9 @@
                   <h1 class="title">
                     <i class="fas fa-terminal"></i>&nbsp;Technologies
                   </h1>
-                  
+                   <div class="mini-cards"></div>
                   <% if ( user.knownTechnologies ) { %> 
-                    <div class="mini-cards">
+                    
                       
                       <% if ( typeof user.knownTechnologies == 'objet') { %> 
                     
@@ -149,27 +149,30 @@
                 <!-- <span class="has-dflex-center bs-md" title="Sass"><i class="fab fa-sass"></i></span> -->
                          
 
-                    </div>
+                   
                     <% } %>
+                  </div>
                 </div>
                 <div class="lx-row lx-card">
                   <h1 class="title">
                     <i class="fas fa-book"></i>&nbsp;My favorite books
                   </h1>
                   <div class="text">
+                    <% if (user.favoritebooks) { %>
                     <ol>
-                    <% let books = user.favoriteBooks.split(',') %>
-                    <% for (let index = 0; index < books.length; index++) { %>
-                      <li>
-                        <p>
-                          <b><%= books[index].split('-')[0] %></b>&nbsp;-<%= books[index].split('-')[1] %>
-                        </p>
-                      </li>
-                      <% }; %>
-                    </ol>
-
                     
-                  </div>
+                      <% let books = user.favoriteBooks.split(',') %>
+                      <% for (let index = 0; index < books.length; index++) { %>
+                        <li>
+                         <p>
+                           <b><%= books[index].split('-')[0] %></b>&nbsp;-<%= books[index].split('-')[1] %>
+                         </p>
+                       </li>
+                      <% } %>
+                    
+                    </ol>
+                  <% } %>
+                </div>
                 </div>
               </div>
             </div>
