@@ -92,28 +92,51 @@
                   
                   <% if ( user.knownTechnologies ) { %> 
                     <div class="mini-cards">
-                      <% user.knownTechnologies.forEach(techno => { %>
-                          <% if (techno === "CSS" ) { %>
-                              <span class="has-dflex-center bs-md" title="CSS"><i class="fab fa-css3-alt"></i></span>
-                            
-                            <% } else if (techno === "HTML" ) {%>
-                              <span class="has-dflex-center bs-md" title="HTML"><i class="fab fa-html5"></i></span>
-                            
-                            <% } else if (techno === "JS" ) {%>
-                              <span class="has-dflex-center bs-md" title="JS"><i class="fab fa-js"></i></span>
-                            
-                              <% } else if (techno === "Git" ) {%>
-                              <span class="has-dflex-center bs-md" title="Git"><i class="fab fa-git-alt"></i></span>
-                            
-                              <% } else if (techno === "Node.js" ) {%>
-                              <span class="has-dflex-center bs-md" title="Node JS"><i class="fab fa-node-js"></i></span>
-                            
-                              <% } else if (techno === "React" ) {%>
-                              <span class="has-dflex-center bs-md" title="React"><i class="fab fa-react"></i></span>
-                            
-                        <%  }}); %>
                       
+                      <% if ( typeof user.knownTechnologies == 'objet') { %> 
                     
+                        <% user.knownTechnologies.forEach(techno => { %>
+                              <% if (techno === "CSS" ) { %>
+                                <span class="has-dflex-center bs-md" title="CSS"><i class="fab fa-css3-alt"></i></span>
+                              
+                              <% } else if (techno === "HTML" ) { %>
+                                <span class="has-dflex-center bs-md" title="HTML"><i class="fab fa-html5"></i></span>
+                              
+                              <% } else if (techno === "JS" ) { %>
+                                <span class="has-dflex-center bs-md" title="JS"><i class="fab fa-js"></i></span>
+                              
+                              <% } else if (techno === "Git" ) { %>
+                                <span class="has-dflex-center bs-md" title="Git"><i class="fab fa-git-alt"></i></span>
+                              
+                              <% } else if (techno === "Node.js" ) { %>
+                                <span class="has-dflex-center bs-md" title="Node JS"><i class="fab fa-node-js"></i></span>
+                              
+                              <% } else if (techno === "React" ) { %>
+                                <span class="has-dflex-center bs-md" title="React"><i class="fab fa-react"></i></span>
+                              
+                        <%  }}); %>
+
+                      <% } else if ( typeof user.knownTechnologies == 'string') { %>
+                      
+                          <% if (user.knownTechnologies === "CSS" ) { %>
+                            <span class="has-dflex-center bs-md" title="CSS"><i class="fab fa-css3-alt"></i></span>
+                          
+                          <% } else if (user.knownTechnologies === "HTML" ) { %>
+                            <span class="has-dflex-center bs-md" title="HTML"><i class="fab fa-html5"></i></span>
+                          
+                          <% } else if (user.knownTechnologies === "JS" ) { %>
+                            <span class="has-dflex-center bs-md" title="JS"><i class="fab fa-js"></i></span>
+                          
+                          <% } else if (user.knownTechnologies === "Git" ) { %>
+                            <span class="has-dflex-center bs-md" title="Git"><i class="fab fa-git-alt"></i></span>
+                          
+                          <% } else if (user.knownTechnologies === "Node.js" ) { %>
+                            <span class="has-dflex-center bs-md" title="Node JS"><i class="fab fa-node-js"></i></span>
+                          
+                          <% } else if (user.knownTechnologies === "React" ) { %>
+                            <span class="has-dflex-center bs-md" title="React"><i class="fab fa-react"></i></span>
+                        
+                      <%  }}; %>
                   
 
                 
